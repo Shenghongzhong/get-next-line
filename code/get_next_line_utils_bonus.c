@@ -1,15 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:24:29 by szhong            #+#    #+#             */
-/*   Updated: 2023/12/15 14:43:28 by szhong           ###   ########.fr       */
+/*   Updated: 2024/01/09 18:46:59 by szhong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 /**
  * @brief Locate the first occurrence of a character in a string.
@@ -20,7 +20,7 @@
  * @param s	A pointer to the null-terminated string to search.
  * @param c	The character to search for.
  *
- * @return	A pointer to the first occurrence of the character in a string
+ * @return	A pointer to the first occurrence of the character in a string 
  * 		or NULL if the character is not found or if the input string 
  * 		is NULL.
  */
@@ -39,15 +39,14 @@ char	*get_strchr(char const *s, int c)
  * @brief Calculate the length of a string.
  *
  * This function calculates the length of the null-terminated string (@p s) by
- * iterating through the characters until the null terminator is encountered.
- * 
- * @param s A pointer to the null-terminated string.
+ * iterating through the characters until the null terminator ('\0') is 
+ * ecountered.
  *
- * @return The length of the string, or 0 if the input string is NULL.
+ * @param s	A pointer to the null-terminated string.
+ * @return	The length of the string, or 0 if the input string is NULL.
  *
- * @note
- * The difference between Libft and Get Next Line is the condition check
- * if @p s is a NULL pointer or not.
+ * @note	The difference between Libft and Get Next Line is the condition
+ * 		check if @p s is a NULL pointer or not. 
  */
 size_t	get_strlen(const char *s)
 {
@@ -65,15 +64,19 @@ size_t	get_strlen(const char *s)
  * @brief Duplicate a string.
  *
  * This function creates a duplicate of a null-terminated string (s) and returns
- * a pointer to the newly allocated memory containing the duplicated string.
- * 
- * @param s A pointer to the null-terminated string to duplicate.
+ * a pointer to the newly allocated memory block containing the duplicatd string.
  *
- * @return A pointer to the duplicated string, or NULL if memory allocation fails
- *         or if the input string is NULL or empty.
+ * @param s	A pointer to the null-terminatd string to duplicate.
+ * @return	A pointer to the duplicated string, or NULL if memory allocation
+ * 		fails or if the input string is NULL or empty.
  * @note
- * The difference between Libft and Get Next Line is the condition check if 
- * @p s is a NULL pointer or the value of @p s is a null terminator.
+ * The function allocates memory for the concatenated string;
+ * The caller must free this memory to prevent memory leaks.
+ *
+ * The resulting string is null-terminated.
+ *
+ * The difference between Libft and Get Next Line is checking if either @p s1 
+ * and @p s2 are NULL pointers.
  */
 char	*get_strdup(const char *s)
 {
@@ -94,23 +97,23 @@ char	*get_strdup(const char *s)
 
 /**
  * @brief Concatenate two strings.
- * 
+ *
  * This function concatenates two null-terminated strings (@p s1 and @p s2),
  * and returns a pointer to newly allocated memory for concatenated string.
  * 
- * @param s1 The first null-terminated string.
- * @param s2 The second null-terminated string.
- * 
- * @return A pointer to concatenated string, or NULL if memory allocation fails
- *         or if either of the input strings is NULL.
+ * @param s1	The first null-terminated string.
+ * @param s2	The second null-terminated string.
+ *
+ * @return	A pointer to concatenated string, or NULL if memory allocation faills
+ * 		or if either of the input strings is NULL.
  * 
  * @note
- * The function allocates memory for the concatenated string; 
- * the caller must free this memory to prevent memory leaks. 
- *
+ * The function allocates memory for the concatenated string;
+ * The caller must free this memory to prevent memory leaks.
+ * 
  * The resulting string is null-terminated.
  *
- * The difference between Libft and Get Next Line is checking if either @p s1 
+ * The difference between Libft and Get Next Line is checking if either @p s1
  * and @p s2 are NULL pointers;
  */
 char	*get_strjoin(char const *s1, char const *s2)
@@ -139,19 +142,19 @@ char	*get_strjoin(char const *s1, char const *s2)
  *
  * This function extracts a substring from the null-terminated string (@p s),
  * starting at the specified index (@p start) and having a length of 
- * at most (@p len) characters. 
+ * at most (@p len) characters.
  * The resulting substring is null-terminated and dynamically allocated.
  *
- * @param s     The null-terminated string to extract the substring from.
- * @param start The index at which to start extracting the substring.
- * @param len   The maximum length of the extracted substring.
+ * @param s	The null-terminated string to extract the substring from.
+ * @param start	The index at which to start extracting the substring.
+ * @param len	The maximum length of the extracted substring.
  *
- * @return	A pointer to the dynamically allocated substring, 
- * 		or NULL if memory allocation fails 
+ * @return	A pointer to the dynamically allocated substring,
+ * 		or NULL if memory allocation fails
  * 		or if the input string is NULL or the specified indices are invalid.
  *
- * @note The caller must free the memory allocated for the substring
- *       to prevent memory leaks.
+ * @note The caller must free the memory allocated for the substring 
+ * to prevent memory leaks
  */
 char	*get_substr(char const *s, unsigned int start, size_t len)
 {
